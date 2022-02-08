@@ -4,24 +4,26 @@ import json
 myResume = {
   "basicDetails": [
     {
-      "Name": "Adrian Remoquillo Esguerra",
-      "Course/Year/Section": "BSCOE 1-6",
-      "Age": "18 years old",
-      "Address": "Taltal, Masinloc, Zambales",
-      "Weight": "51 kg"
+      "Full-Name": "Adrian Remoquillo Esguerra",
+      "Age": "24 years old",
+      "Address": "Sherlock Holmes - 221B Baker St., London",
+      "Weight": "55 kg"
     }
   ],
   "contactDetails": [
     {
-      "E-mail": "i.am.adrainsgrrx@gmail.com",
-      "Cell-phone number": "0938-557-9510"
+      "E-mail": "peterparker08@gmail.com",
+      "Cell-phone number": "0929-123-4567"
     }
   ],
   "education": [
-    "Elementary Education: Taltal Elementary School",
-    "Junior High School Education: Taltal National High School",
-    "Senior High School: Northern Zambales College Inc.",
-    "College: Currently studying at Polytechnic University of the Philippines(PUP)"
+    {
+    "Elem": "Taltal Elementary School",
+    "JHS" : "Taltal National High School",
+    "SHS": "Northern Zambales College Inc.",
+    "Tert": "Polytechnic University of the Philippines(PUP)",
+    "Course": "Bachelor of Science in Computer Engineering",
+    }
   ],
   "achievementsJHS": [
     "With Honors",
@@ -47,7 +49,7 @@ myResume = {
     "Davinci Resolve",
     "Traditional Arts/Drawing",
     "Digital Arts/Drawing"
-  ]
+  ],
 }
 
 json_file = json.dumps(myResume, indent=2)
