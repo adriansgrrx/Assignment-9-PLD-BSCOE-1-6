@@ -5,9 +5,11 @@ myResume = {
   "basicDetails": [
     {
       "Full-Name": "Adrian Remoquillo Esguerra",
-      "Age": "24 years old",
+      "Sex": "Male",
+      "Age": "18 years old",
       "Address": "Sherlock Holmes - 221B Baker St., London",
-      "Weight": "55 kg"
+      "Height": "5'8 ft",
+      "Weight": "50 kg"
     }
   ],
   "contactDetails": [
@@ -18,40 +20,37 @@ myResume = {
   ],
   "education": [
     {
-    "Elem": "Taltal Elementary School",
-    "JHS" : "Taltal National High School",
-    "SHS": "Northern Zambales College Inc.",
-    "Tert": "Polytechnic University of the Philippines(PUP)",
-    "Course": "Bachelor of Science in Computer Engineering",
+    "Elem": "Hampden Gurney CofE Primary School",
+    "JHS" : "North London Collegiate School",
+    "SHS": "Godolphin & Latymer School",
+    "Tert": "Imperial College London",
     }
   ],
-  "achievementsJHS": [
-    "With Honors",
-    "Participant in Editorial Cartooning Division Level",
-    "2nd Place in Collaborative Desktop Publishing District Level",
-    "Participant in Chess District Level12th Place in Poster Making Contest Division Level"
+  "achievements": [
+    {
+    "1": "Participant in Editorial Cartooning Division Level",
+    "2": "Participant in Chess District Level",
+    "3": "12th Place in Poster Making Contest Division Level",
+    "4": "1st Place in Collaborative Desktop Publishing District Level",
+    "5": "Participant in Collaborative Desktop Publishing Division Level",
+    }
   ],
-  "achievementsSHS": [
-    "With High Honors",
-    "1st Place in Collaborative Desktop Publishing District Level",
-    "Participant in Collaborative Desktop Publishing Division Level",
-    "Supreme Student Government Officer"
-  ],
-  "reference": [
-    "John Florentino E. Echon EdD",
-    "Teacher III",
-    "Taltal National High School",
-    "0977-025-7009",
-    "johnflorentino.echon@deped.gov.ph"
+  "organizations": [
+    {
+    "yessci": "Yes-O Officer and Science Club Officer for 2 years straight",
+    "ssg": "SSG Officer for 1 year"
+    }
   ],
   "skills": [
-    "Photoshop",
-    "Davinci Resolve",
-    "Traditional Arts/Drawing",
-    "Digital Arts/Drawing"
+    {
+    "MS": "Microsoft Office Products",
+    "Ps": "Photoshop",
+    "DR": "Davinci Resolve",
+    "TDraw": "Traditional and Digital Arts/Drawing",
+    }
   ],
 }
 
 json_file = json.dumps(myResume, indent=2)
 with open("myresume.json", "w") as resume: 
-    resume.write(json_file)
+  resume.write(json_file)
