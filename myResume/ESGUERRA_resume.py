@@ -2,49 +2,53 @@ import os
 from fpdf import FPDF
 import json
 
-jsonF = "myresume.json"
-filename = "ESGUERRA_ADRIAN.pdf"
-title = "ADRIAN R. ESGUERRA"
-subtitle = "Computer Engineering Student"
-tagline= "Creative, Artistic, Colligial, Competent, and Reliable Tech-Person"
+"""
+global variables section
+"""
+jsonF = "myresume.json"                                                         # JSON file where my data are stored
+filename = "ESGUERRA_ADRIAN.pdf"                                                # The output name of the file in pdf format
+title = "ADRIAN R. ESGUERRA"                                                    # The main title of the resume
+subtitle = "Computer Engineering Student"                                       # The sub-title of the resume
+tagline= "Creative, Artistic, Colligial, Competent, and Reliable Tech-Person"   # The tagline of the resume
 
-pdf = FPDF("P", "mm", "Letter")
+pdf = FPDF("P", "mm", "Letter") # FPDF library stored on a variable later to be accessed 
 
-with open(jsonF, "r") as resume:
+# Reading and opening of the json file
+with open(jsonF, "r") as resume:    # with statement is used to close the file automatically
     json_object = json.loads(resume.read())
 
+"""
+Main title, sub-title and tagline positioning and editing section
+"""
 def mainTitle():
     pdf.set_font('helvetica', 'B', 35)
-        # Calculate width of title and position
+    # Calculate width of title and position
     w = pdf.get_string_width(title) + 6
     pdf.set_x((275 - w) / 2)
-        # Colors of frame, background and text
     pdf.set_text_color(0, 0, 0)
-        # Title
+    # Title
     pdf.cell(w, 40, title, ln = True)
 
 def subTitle():
     pdf.set_font("helvetica", "", 28)
-        # Calculate width of title and position
+    # Calculate width of title and position
     w = pdf.get_string_width(subtitle) + 6
     pdf.set_x((273 - w) / 2)
-        # Colors of frame, background and text
     pdf.set_text_color(0, 0, 0)
-        # Title
+    # Subtitle
     pdf.cell(w, -22, subtitle)
-
 
 def tagline_i():
     pdf.set_font("helvetica", "", 13)
-        # Calculate width of title and position
+    # Calculate width of title and position
     w = pdf.get_string_width(tagline) + 6
     pdf.set_x((273 - w) / 2)
-        # Colors of frame, background and text
     pdf.set_text_color(0, 0, 0)
-        # Title
+    # Title
     pdf.cell(w, -6, tagline, ln = True)
-
-
+"""
+Data structuring sectoin including its positionings and reading json file
+"""
 def basicDetails():
     pdf.set_font("helvetica", "", 15)
     pdf.set_font(style="B")
@@ -100,16 +104,21 @@ def skills():
     pdf.set_font(style="B")
     pdf.cell(195, 7, "SKILLS", ln = 20, border = True)
     pdf.set_font("helvetica", "", 12)
-    pdf.cell(99, 5, "" + str(json_object["skills"][0]["MS"]), ln = True, align="C")
-    pdf.cell(125, 5, "" + str(json_object["skills"][0]["Ps"]), ln = True, align="C")
-    pdf.cell(115, 5, "" + str(json_object["skills"][0]["DR"]), ln = True, align="C")
-    pdf.cell(79, 5, "" + str(json_object["skills"][0]["TDraw"]), ln = True, align="C")
-
+    pdf.cell(99, 5.5, "" + str(json_object["skills"][0]["MS"]), ln = True, align="C")
+    pdf.cell(125, 5.5, "" + str(json_object["skills"][0]["Ps"]), ln = True, align="C")
+    pdf.cell(115, 5.5, "" + str(json_object["skills"][0]["DR"]), ln = True, align="C")
+    pdf.cell(79, 5.5, "" + str(json_object["skills"][0]["TDraw"]), ln = True, align="C")
+"""
+Image section
+"""
 def addImages():
     pdf.image("D1.png", 13, -55, 50, 0)
     pdf.image("croppedme.png", 13, 9, 50, 0)
     pdf.image("graph.png", 90, 238, 70, 0)
-    
+
+"""
+Calling functions section
+"""   
 def execute():
     pdf.add_page()
     addImages()
@@ -123,8 +132,10 @@ def execute():
     organization()
     skills()
 
-
+"""
+Execution of the whole program
+"""
 execute()
 
-pdf.output(filename)
-os.startfile(filename)
+pdf.output(filename)    # The output name of the generated pdf
+os.startfile(filename)  # To start the file automatically
